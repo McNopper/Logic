@@ -5,7 +5,7 @@ This implementation uses a [many-valued](https://en.wikipedia.org/wiki/Many-valu
 ## Problem
 Before a [coin flipping](https://en.wikipedia.org/wiki/Coin_flipping) experiment by a person and an observer, the truth value is to both unknown, if e.g. the head side is on top or not. After the coin is flipped by this person and catches it with one hand and covers it with the other hand, the head side is either on top or not. For the person and the observer, the truth value remains unknown even though the head is either on top or not. If the person uncovers the coin for the observer, the truth value becomes for the observer either true or false. The observer already knows the truth value. However, for the person who flipped the coin the truth value remains unknown. After the person uncovers the coin, the truth value also becomes either true or false.  
   
-From my point of view, this problem is a similar problem to [Schrödinger's cat](https://en.wikipedia.org/wiki/Schr%C3%B6dinger%27s_cat), as I think the coin is also in a [paradox](https://en.wikipedia.org/wiki/Paradox) state after the flipping and before the uncovering.
+From my point of view, this problem is a similar problem to [Wigner's friend](https://en.wikipedia.org/wiki/Wigner%27s_friend) or [Schrödinger's cat](https://en.wikipedia.org/wiki/Schr%C3%B6dinger%27s_cat), as the coin itself is in a superposition after the flipping and before the uncovering stages.
 
 ## Implementation
 
@@ -13,7 +13,7 @@ The `TruthValue` class is implemented in a generic way, which implements a combi
 
 ### How to build?
 
-The implementation is a C/C++ cross-platform application and requires C++17 because it is set in the project file. Following STL libraries are used co convenience:
+The implementation is a C/C++ cross-platform application and requires C++17 because it is set in the project file. Following STL libraries are used for convenience:
 
 - `<algorithm>`
 - `<cstdint>`
