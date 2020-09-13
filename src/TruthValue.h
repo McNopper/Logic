@@ -10,34 +10,42 @@ enum Values {UNKNOWN, FALSE, TRUE};
 class TruthValue {
 private:
 
+	static uint32_t timePoint;
+
 	std::map<uint32_t, Values> values;
 
 public:
+
+	static uint32_t getTimePoint();
+
+	static void setTimePoint(uint32_t t);
+
+	//
 
 	TruthValue();
 	TruthValue(Values value);
 	TruthValue(uint32_t t, Values value);
 	~TruthValue();
 
-	//
-
-	Values getValue(uint32_t t) const;
-
-	void setValue(uint32_t t, Values value);
+	void addValue(uint32_t t, Values value);
 
 	//
 
-	TruthValue IDENTITY(uint32_t t) const;
-
-	TruthValue NOT(uint32_t t) const;
-
-	TruthValue OR(uint32_t t, const TruthValue& other) const;
-
-	TruthValue AND(uint32_t t, const TruthValue& other) const;
+	Values getValue() const;
 
 	//
 
-	const std::string& toString(uint32_t t) const;
+	TruthValue IDENTITY() const;
+
+	TruthValue NOT() const;
+
+	TruthValue OR(const TruthValue& other) const;
+
+	TruthValue AND(const TruthValue& other) const;
+
+	//
+
+	const std::string& toString() const;
 
 };
 
