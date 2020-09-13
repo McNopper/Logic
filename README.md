@@ -3,14 +3,14 @@
 This implementation uses a [many-valued](https://en.wikipedia.org/wiki/Many-valued_logic) and a [temporal](https://en.wikipedia.org/wiki/Temporal_logic) logic and is inspired by the following thought experiment:
 
 ## Thought experiment
-After a [coin flipping](https://en.wikipedia.org/wiki/Coin_flipping) by one person and an observing person, the truth value - if e.g. the head of the coin is up - is for both unknown when the coin is kept covered. Even both persons know, that either the head of the coin is up or not, the coin is in a superposition for both of them. If the person uncovers the coin for the observer, the truth value becomes for the observer either true or false. However, for the person who flipped the coin, the truth value remains unknown until the coin is completely uncovered.  
-It is interesting, that at the same time, a superposition of the coin for one person and a non-superposition of the coin for the observer is possible. 
-  
+Before a [coin flipping](https://en.wikipedia.org/wiki/Coin_flipping), the truth value if e.g. the heads up is unknown. If the coin is flipped and kept covered, the truth value stays unknown. It only becomes true or false, if the coin is uncovered. However, if the coin is flipped again, this previous flipped truth value stays unknown.  
+It seems, that the truth value unknown - a superposition - is the same in the future, the present and the past.
+
 This thought experiment is inspired by [Wigner's friend](https://en.wikipedia.org/wiki/Wigner%27s_friend) and [Schrödinger's cat](https://en.wikipedia.org/wiki/Schr%C3%B6dinger%27s_cat).
 
 ## Implementation
 
-The `TruthValue` can be `FALSE`, `UNKNOWN` and `TRUE`. The `TruthVariable` class contains the implementation of the basic boolean operations. The `Logic.cpp` file contains functions to test the implementation.
+The `TruthValue` can be `FALSE`, `UNKNOWN` and `TRUE`. The `TruthVariable` class contains the implementation of the basic boolean operations, where the given `TruthValue` is associated with a given `timePoint`. The `Logic.cpp` contains test functions and the main entry point.
 
 ### How to build?
 
