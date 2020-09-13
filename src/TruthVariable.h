@@ -5,7 +5,7 @@
 #include <map>
 #include <string>
 
-enum TruthValue {UNKNOWN, FALSE, TRUE};
+enum TruthValue {FALSE = - 1, UNKNOWN = 0, TRUE = 1};
 
 class TruthVariable {
 private:

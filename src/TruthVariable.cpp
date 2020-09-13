@@ -74,12 +74,9 @@ TruthVariable TruthVariable::IDENTITY() const
 // see https://en.wikipedia.org/wiki/Negation
 TruthVariable TruthVariable::NOT() const
 {
-	// Note: Not unknown is either true or false, which is unknown again.
-	static const TruthValue MappingTruthValues[3] = {UNKNOWN, TRUE, FALSE};
-
 	TruthValue currentTruthValue = getTruthValue();
 
-	TruthValue newTruthValue = MappingTruthValues[(int32_t)currentTruthValue];
+	TruthValue newTruthValue = (TruthValue)-(int32_t)currentTruthValue;
 
 	return TruthVariable(timePoint, newTruthValue);
 }
@@ -110,9 +107,9 @@ TruthVariable TruthVariable::AND(const TruthVariable& other) const
 
 const std::string& TruthVariable::toString() const
 {
-	static const std::string StringTruthValues[3] = {"UNKNOWN", "FALSE", "TRUE"};
+	static const std::string StringTruthValues[3] = {"FALSE", "UNKNOWN", "TRUE"};
 
 	TruthValue currentTruthValue = getTruthValue();
 
-	return StringTruthValues[(int32_t)currentTruthValue];
+	return StringTruthValues[(int32_t)currentTruthValue + 1];
 }
