@@ -1,4 +1,4 @@
-# A many-valued and temporal logic
+# A many-valued and temporal logic implementation
 
 This implementation uses a [many-valued](https://en.wikipedia.org/wiki/Many-valued_logic) and a [temporal](https://en.wikipedia.org/wiki/Temporal_logic) logic and is inspired by the following thought experiment:
 
