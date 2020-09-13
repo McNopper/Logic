@@ -6,7 +6,7 @@ This implementation uses a [many-valued](https://en.wikipedia.org/wiki/Many-valu
 Before a [coin flipping](https://en.wikipedia.org/wiki/Coin_flipping), the truth value for e.g. heads up is unknown. If the coin is flipped and kept covered, the truth value stays unknown. It only becomes either true or false, if the coin is uncovered by the observer. However, if the coin is flipped again, the previous flipped truth value stays unknown.  
 It seems, that the truth value unknown - a superposition truth value - is the same in the future, the present and the past.
 
-This thought experiment is inspired by [Wigner's friend](https://en.wikipedia.org/wiki/Wigner%27s_friend), [Schrödinger's cat](https://en.wikipedia.org/wiki/Schr%C3%B6dinger%27s_cat) and the [Law of excluded middle](https://en.wikipedia.org/wiki/Law_of_excluded_middle).
+This thought experiment is inspired by [Wigner's friend](https://en.wikipedia.org/wiki/Wigner%27s_friend), [Schrödinger's cat](https://en.wikipedia.org/wiki/Schr%C3%B6dinger%27s_cat) and the [Law of noncontradiction](https://en.wikipedia.org/wiki/Law_of_noncontradiction).
 
 ## Logic
 
