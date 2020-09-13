@@ -11,35 +11,35 @@ void test()
 	TruthVariable c(FALSE);
 
 	// Test correct lookup of string.
-	printf("TRUE = %s\n", a.toString().c_str());
-	printf("UNKNOWN = %s\n", b.toString().c_str());
-	printf("FALSE = %s\n\n", c.toString().c_str());
+	printf("TRUE = %s\n", a.toString());
+	printf("UNKNOWN = %s\n", b.toString());
+	printf("FALSE = %s\n\n", c.toString());
 
 	// Test IDENTITY operation.
-	printf("IDENTITY %s = %s\n", a.toString().c_str(), a.IDENTITY().toString().c_str());
-	printf("IDENTITY %s = %s\n", b.toString().c_str(), b.IDENTITY().toString().c_str());
-	printf("IDENTITY %s = %s\n\n", c.toString().c_str(), c.IDENTITY().toString().c_str());
+	printf("IDENTITY %s = %s\n", a.toString(), a.IDENTITY().toString());
+	printf("IDENTITY %s = %s\n", b.toString(), b.IDENTITY().toString());
+	printf("IDENTITY %s = %s\n\n", c.toString(), c.IDENTITY().toString());
 
 	// Test NOT operation.
-	printf("NOT %s = %s\n", a.toString().c_str(), a.NOT().toString().c_str());
-	printf("NOT %s = %s\n", b.toString().c_str(), b.NOT().toString().c_str());
-	printf("NOT %s = %s\n\n", c.toString().c_str(), c.NOT().toString().c_str());
+	printf("NOT %s = %s\n", a.toString(), a.NOT().toString());
+	printf("NOT %s = %s\n", b.toString(), b.NOT().toString());
+	printf("NOT %s = %s\n\n", c.toString(), c.NOT().toString());
 
 	// Test OR operation.
-	printf("%s OR %s = %s\n", a.toString().c_str(), a.toString().c_str(), a.OR(a).toString().c_str());
-	printf("%s OR %s = %s\n", a.toString().c_str(), b.toString().c_str(), a.OR(b).toString().c_str());
-	printf("%s OR %s = %s\n", a.toString().c_str(), c.toString().c_str(), a.OR(c).toString().c_str());
-	printf("%s OR %s = %s\n", b.toString().c_str(), b.toString().c_str(), b.OR(b).toString().c_str());
-	printf("%s OR %s = %s\n", b.toString().c_str(), c.toString().c_str(), b.OR(c).toString().c_str());
-	printf("%s OR %s = %s\n\n", c.toString().c_str(), c.toString().c_str(), c.OR(c).toString().c_str());
+	printf("%s OR %s = %s\n", a.toString(), a.toString(), a.OR(a).toString());
+	printf("%s OR %s = %s\n", a.toString(), b.toString(), a.OR(b).toString());
+	printf("%s OR %s = %s\n", a.toString(), c.toString(), a.OR(c).toString());
+	printf("%s OR %s = %s\n", b.toString(), b.toString(), b.OR(b).toString());
+	printf("%s OR %s = %s\n", b.toString(), c.toString(), b.OR(c).toString());
+	printf("%s OR %s = %s\n\n", c.toString(), c.toString(), c.OR(c).toString());
 
 	// Test AND operation.
-	printf("%s AND %s = %s\n", a.toString().c_str(), a.toString().c_str(), a.AND(a).toString().c_str());
-	printf("%s AND %s = %s\n", a.toString().c_str(), b.toString().c_str(), a.AND(b).toString().c_str());
-	printf("%s AND %s = %s\n", a.toString().c_str(), c.toString().c_str(), a.AND(c).toString().c_str());
-	printf("%s AND %s = %s\n", b.toString().c_str(), b.toString().c_str(), b.AND(b).toString().c_str());
-	printf("%s AND %s = %s\n", b.toString().c_str(), c.toString().c_str(), b.AND(c).toString().c_str());
-	printf("%s AND %s = %s\n\n", c.toString().c_str(), c.toString().c_str(), c.AND(c).toString().c_str());
+	printf("%s AND %s = %s\n", a.toString(), a.toString(), a.AND(a).toString());
+	printf("%s AND %s = %s\n", a.toString(), b.toString(), a.AND(b).toString());
+	printf("%s AND %s = %s\n", a.toString(), c.toString(), a.AND(c).toString());
+	printf("%s AND %s = %s\n", b.toString(), b.toString(), b.AND(b).toString());
+	printf("%s AND %s = %s\n", b.toString(), c.toString(), b.AND(c).toString());
+	printf("%s AND %s = %s\n\n", c.toString(), c.toString(), c.AND(c).toString());
 
 	printf("... end of tests\n\n");
 }

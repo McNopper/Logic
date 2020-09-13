@@ -43,6 +43,15 @@ void TruthVariable::addTruthValue(uint32_t t, TruthValue truthValue)
 	truthValues[t] = truthValue;
 }
 
+void TruthVariable::removeTruthValue(uint32_t t)
+{
+	auto it = truthValues.find(t);
+	if (it != truthValues.end())
+	{
+		truthValues.erase(it);
+	}
+}
+
 //
 
 TruthValue TruthVariable::getTruthValue() const
@@ -63,7 +72,6 @@ TruthValue TruthVariable::getTruthValue() const
 
 //
 
-// see https://en.wikipedia.org/wiki/Law_of_identity
 TruthVariable TruthVariable::IDENTITY() const
 {
 	TruthValue currentTruthValue = getTruthValue();
@@ -71,7 +79,6 @@ TruthVariable TruthVariable::IDENTITY() const
 	return TruthVariable(timePoint, currentTruthValue);
 }
 
-// see https://en.wikipedia.org/wiki/Negation
 TruthVariable TruthVariable::NOT() const
 {
 	TruthValue currentTruthValue = getTruthValue();
@@ -81,7 +88,6 @@ TruthVariable TruthVariable::NOT() const
 	return TruthVariable(timePoint, newTruthValue);
 }
 
-// see https://en.wikipedia.org/wiki/Logical_disjunction
 TruthVariable TruthVariable::OR(const TruthVariable& other) const
 {
 	TruthValue currentTruthValue = getTruthValue();
@@ -92,7 +98,6 @@ TruthVariable TruthVariable::OR(const TruthVariable& other) const
 	return TruthVariable(timePoint, newTruthValue);
 }
 
-// see https://en.wikipedia.org/wiki/Logical_conjunction
 TruthVariable TruthVariable::AND(const TruthVariable& other) const
 {
 	TruthValue currentTruthValue = getTruthValue();
@@ -105,11 +110,11 @@ TruthVariable TruthVariable::AND(const TruthVariable& other) const
 
 //
 
-const std::string& TruthVariable::toString() const
+const char* TruthVariable::toString() const
 {
 	static const std::string StringTruthValues[3] = {"FALSE", "UNKNOWN", "TRUE"};
 
 	TruthValue currentTruthValue = getTruthValue();
 
-	return StringTruthValues[(int32_t)currentTruthValue + 1];
+	return StringTruthValues[(int32_t)currentTruthValue + 1].c_str();
 }
