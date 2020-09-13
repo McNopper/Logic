@@ -1,14 +1,14 @@
 #include <cstdio>
 
-#include "TruthValue.h"
+#include "TruthVariable.h"
 
 void test()
 {
 	printf("Start of tests ...\n\n");
 
-	TruthValue a(UNKNOWN);
-	TruthValue b(FALSE);
-	TruthValue c(TRUE);
+	TruthVariable a(UNKNOWN);
+	TruthVariable b(FALSE);
+	TruthVariable c(TRUE);
 
 	printf("UNKNOWN = %s\n", a.toString().c_str());
 	printf("FALSE = %s\n", b.toString().c_str());
@@ -39,36 +39,37 @@ int main()
 	test();
 
 	//
-	// Setting up flipping coin test case.
+	// Setting up the flipping coin experiment.
 	//
 
 	// Time point 0: Start of the experiment and before flipping the coin.
 	uint32_t t = 0;
-	TruthValue coinFlipped(t, UNKNOWN);
-	TruthValue coinVisibleToObserver(t, FALSE);
-	TruthValue coinVisibleToFlipper(t, FALSE);
+	TruthVariable coinFlipped(t, UNKNOWN);
+	TruthVariable coinVisibleToObserver(t, FALSE);
+	TruthVariable coinVisibleToFlipper(t, FALSE);
 
 	// Time point 1: Coin is flipped and catched.
 	t++;
 	//coinFlipped.addValue(t, UNKNOWN);
 	//coinFlipped.addValue(t, FALSE);
-	coinFlipped.addValue(t, TRUE);
+	coinFlipped.addTruthValue(t, TRUE);
 
 	// Time point 2: Coin is uncovered to observing person.
 	t++;
-	coinVisibleToObserver.addValue(t, TRUE);
+	coinVisibleToObserver.addTruthValue(t, TRUE);
 
 	// Time point 3: Coin is uncovered to flipping person.
 	t++;
-	coinVisibleToFlipper.addValue(t, TRUE);
+	coinVisibleToFlipper.addTruthValue(t, TRUE);
 
 	//
-	// Evaluation.
+	// Running the flipping coin experiment.
 	//
+
 	printf("Start of experiment ...\n\n");
 
 	t = 0;
-	TruthValue::setTimePoint(t);
+	TruthVariable::setTimePoint(t);
 	printf("Before flipping the coin:\n");
 	printf("Coin is flipped and catched? %s\n", coinFlipped.toString().c_str());
 	auto observerAtStart = coinVisibleToObserver.AND(coinFlipped);
@@ -77,12 +78,12 @@ int main()
 	printf("Does the flipper know, if heads is up or not? %s\n\n", flipperAtStart.toString().c_str());
 
 	t = 1;
-	TruthValue::setTimePoint(t);
+	TruthVariable::setTimePoint(t);
 	printf("Coin is flipped and catched:\n");
 	printf("Coin is flipped and catched? %s\n", coinFlipped.toString().c_str());
 
 	// Further evaluation only makes sense, if coin is flipped.
-	if (coinFlipped.getValue() == TRUE)
+	if (coinFlipped.getTruthValue() == TRUE)
 	{
 		auto observerAfterCatch = coinVisibleToObserver.AND(coinFlipped);
 		printf("Does the observer know, if heads is up or not? %s\n", observerAfterCatch.toString().c_str());
@@ -90,7 +91,7 @@ int main()
 		printf("Does the flipper know, if heads is up or not? %s\n\n", flipperAfterCatch.toString().c_str());
 
 		t = 2;
-		TruthValue::setTimePoint(t);
+		TruthVariable::setTimePoint(t);
 		printf("Coin is uncovered to the observer:\n");
 		printf("Coin is flipped and catched? %s\n", coinFlipped.toString().c_str());
 		auto observerAfterUncover = coinVisibleToObserver.AND(coinFlipped);
@@ -99,7 +100,7 @@ int main()
 		printf("Does the flipper know, if heads is up or not? %s\n\n", flipperAfterUncover.toString().c_str());
 
 		t = 3;
-		TruthValue::setTimePoint(t);
+		TruthVariable::setTimePoint(t);
 		printf("Coin is uncovered to the flipper:\n");
 		printf("Coin is flipped and catched? %s\n", coinFlipped.toString().c_str());
 		auto observerAfterOwnUncover = coinVisibleToObserver.AND(coinFlipped);
